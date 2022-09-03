@@ -1,0 +1,234 @@
+
+main img {
+    max-width: 500px;
+    max-height:fit-content;
+}
+.in-line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+header .header-banner {
+
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+    align-items: center;
+    
+}
+
+header .banner {
+    height: 200px;
+    width: 100%;
+    /*
+        https://arctickingdom.com/wp-content/uploads/2017/03/214-IMG_8054.jpg
+    */
+    background-image: url('img/banner.png');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    transform-origin: top;
+    overflow: hidden;
+    
+}
+header h1 {
+
+    font-family: "Gentium Basic", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 60px;
+    color: #000000;
+    line-height: 70px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px #000000;
+    
+}
+    
+header h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+
+header .logo {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 0 20px 0;  
+}
+
+header nav ul {
+
+    display: block;
+    margin: 0 auto;
+    text-align: center; /*IE*/
+    width: fit-content;
+    
+}
+    
+header nav ul li {
+    
+    display: inline-block;
+    padding: 16px 16px;
+    
+}
+
+nav ul li a {
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #172029;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}
+
+footer {
+
+    width: calc(100% - 80px);
+    padding: 40px 40px;
+    background-color: #172029;
+    margin-top: 20px;
+    overflow: hidden;
+    
+}
+
+footer ul {
+
+    width: fit-content;
+    float: left;
+    padding-left: 0px;
+    
+}
+    
+footer ul li {
+    
+    display: block;
+    padding: 0 0 10px 0;
+    
+}
+    
+footer ul li p {
+    
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    
+}
+    
+footer ul li a {
+    
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}
+.footer-sm {
+
+    width: 32px;
+    float: right;
+    
+}
+    
+.footer-sm img {
+    
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+hr {
+
+    color: #4f5663;
+    border-width: 2px;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    
+}
+
+.gallery-image {
+
+    margin: 10px;
+    
+    position: relative;
+    text-align: center;
+    
+} 
+.gallery-image img {
+    width: 100%;
+    max-width: 200px;
+    height: width;
+    border-radius: 50%;
+} 
+.post-header {       
+    
+    /*kujundus*/
+    
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 3px;
+    line-height: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 9px #111111;
+    
+       /*positsioneerimine*/
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.gallery-links {
+    
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    flex-basis: 300px;
+    
+}
+main .main-margin {
+    margin: 10px;
+}
+.mobile-only{
+    display: flex;
+}
+.desktop-only{
+    display: none;
+}
+
+@media only screen and (min-width: 950px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: flex;
+  }
+  .gallery-links {
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 300px;
+    
+}
+}
