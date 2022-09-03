@@ -215,6 +215,13 @@ main .main-margin {
 .desktop-only{
     display: none;
 }
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}
 
 @media only screen and (min-width: 950px) {
   .mobile-only {
