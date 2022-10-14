@@ -8,7 +8,7 @@
         let c = document.getElementById("clock");
        
         //setTimeout(updateClock, 2000);
-        setInterval(updateClock, 1000);
+        setInterval(updateClock, 1);
         
         function updateClock() {
             
@@ -118,26 +118,55 @@ function GetMap() {
     
     "use strict";
 
-    let centerPoint = new Microsoft.Maps.Location(
+    let ut = new Microsoft.Maps.Location(
             58.38104, 
             26.71992
         );
-
+    let parim_koht = new Microsoft.Maps.Location(
+        58.8814812, 25.5490265
+        );
+    let kesk_punkt = new Microsoft.Maps.Location(
+        58.5814812, 25.6290265
+        );
     map = new Microsoft.Maps.Map("#map", {
         credentials: mapAPIKey,
-        center: centerPoint,
-        zoom: 14,
+        center: kesk_punkt,
+        zoom: 8,
         mapTypeId: Microsoft.Maps.MapTypeId.road,
         disablePanning: true
+    }); 
+    let pushpin = new Microsoft.Maps.Pushpin(ut);
+    let pushpin2 = new Microsoft.Maps.Pushpin(parim_koht);
+    pushpin.metadata = {
+        title: "Tartu Ülikool"
+    }
+    pushpin2.metadata = {
+        title: "Paide"
+    }
+    let infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+        visible: false
     });
-    
-    let pushpin = new Microsoft.Maps.Pushpin(centerPoint, {
-            title: 'Tartu Ülikool',
-            //subTitle: 'Hea koht',
-            //text: 'UT'
-        });
 
-    map.entities.push(pushpin);
+    infobox.setMap(map);
+    let pins = [pushpin,pushpin2]
+
+    for (let index = 0; index < pins.length; index++) {
+        const pin = pins[index];
+        Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
+        map.entities.push(pin);
+        
+    }
+    function pushpinClicked(e) {
+        console.log(e.target.metadata)
+        if (e.target.metadata) {
+            infobox.setOptions({
+                location: e.target.getLocation(),
+                title: e.target.metadata.title,
+                //description: e.target.metadata.description,
+                visible: true
+            });
+        }
+    }
 
 }
 
